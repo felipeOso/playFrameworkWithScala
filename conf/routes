@@ -42,6 +42,8 @@ GET /redirect                    controllers.HolaMundoController.redirectOtraPag
 
 GET /pruebaAction                    controllers.pruebaActionsController.pruebaActionRequest
 
+GET /actionJSON                    controllers.pruebaActionsController.actionJSON
+
 ##########################################################
 ##          prueba code status HTTP
 ######################################################
