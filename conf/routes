@@ -1,0 +1,68 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+#######################################################
+#  Routes del controlador  HomeController
+###########################################################
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+
+#######################################################
+#  Routes del controlador  CountController
+###########################################################
+
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+
+#######################################################
+#  Routes del controlador  AsyncController
+###########################################################
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+#######################################################
+#  Routes del controlador  HolaMundoController
+###########################################################
+GET /holaMundo                      controllers.HolaMundoController.holaMundo
+
+#ruta de compilacion: http://localhost:8080/hola?name=felipe
+GET    /hola                  controllers.HolaMundoController.holaConParam(name:String)
+
+#ruta de compilacion : http://localhost:8080/otrohola/felipe
+GET /otrohola/:n               controllers.HolaMundoController.otroHola(n:String)
+
+#ruta de compilacion : http://localhost:8080/redirect
+GET /redirect                    controllers.HolaMundoController.redirectOtraPage
+
+#######################################################
+#  Routes del controlador  pruebaActionsController
+###########################################################
+
+GET /pruebaAction                    controllers.pruebaActionsController.pruebaActionRequest
+
+##########################################################
+##          prueba code status HTTP
+######################################################
+# Redirects to https://www.playframework.com/ with 303 See Other
+GET   /about      controllers.Default.redirect(to = "https://www.playframework.com/")
+
+# Responds with 404 Not Found
+GET   /orders     controllers.Default.notFound
+
+# Responds with 500 Internal Server Error
+GET   /clients    controllers.Default.error
+
+# Responds with 501 Not Implemented
+GET   /posts      controllers.Default.todo
+
+
+
+#######################################################
+#  Routes Estaticas
+###########################################################
+# Map static resources from the /public folder to the /assets URL path
+
+#ruta de compilacion : http://localhost:8080/assets/index.html
+GET     /assets/*file               controllers.Assets.versioned(file)
